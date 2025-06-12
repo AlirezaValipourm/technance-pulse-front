@@ -102,181 +102,86 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Testimonials Grid with Central Stats */}
-          <div className="relative max-w-7xl mx-auto">
-            {/* Central Stats Circle */}
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-sm rounded-full border border-slate-700 p-8 text-center">
-                <div className="text-4xl font-bold text-white mb-2">3,046,005</div>
-                <div className="text-slate-300 text-sm font-medium">NUMBER OF TRADES</div>
-                <Button className="mt-4  text-white px-6">
-                  SEE ALL
-                </Button>
-              </div>
-            </div>
-
+          {/* Testimonials Grid */}
+          <div className="relative max-w-full mx-auto">
             {/* Testimonials Grid - Top Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6">
               {/* Card 1 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Mobile Trading Done Right</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Lucas P</span>
-                  </div>
-                </CardContent>
-              </Card>
-
+              <TestimonialCard
+                title="Mobile Trading Done Right"
+                description="The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now."
+                author="Lucas P"
+              />
               {/* Card 2 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Best Crypto Platform For Professionals</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    As A Professional Trader, I Need Reliability And Advanced Features. This Platform Delivers Both Flawlessly.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Daniel M</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Spacer for center */}
-              <div className="lg:col-span-1 hidden lg:block"></div>
-
+              <TestimonialCard
+                title="Best Crypto Platform For Professionals"
+                description="As A Professional Trader, I Need Reliability And Advanced Features. This Platform Delivers Both Flawlessly."
+                author="Daniel M"
+              />
               {/* Card 3 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Perfect For Bitcoin Trading</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    The Bitcoin Trading Features Are Intuitive And Swift.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Lucas P</span>
-                  </div>
-                </CardContent>
-              </Card>
-
+              <TestimonialCard
+                title="Transformed My Trading Strategy"
+                description="The Platform's Unique Features Have Allowed Me To Implement Strategies I Couldn't Execute Elsewhere"
+                author="Lucas P"
+              />
               {/* Card 4 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Most Trading Experience!</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    I've Been Crypto Trading For Years And This Is By Far The Best Combination Of Sleek Design And Powerful Features.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Lucas P</span>
-                  </div>
-                </CardContent>
-              </Card>
+              <TestimonialCard
+                title="Fast, Reliable & Perfect For Bitcoin Trading"
+                description="The Fastest Crypto Trading Platform I've Experienced. The Low Spreads And Swift Execution Are Exactly What Four Traders Need."
+                author="John D"
+              />
+              {/* Card 5 */}
+              <TestimonialCard
+                title="Most Trading Experience!"
+                description="I've Been Crypto Trading For Years And This Is By Far The Best Combination Of Sleek Design And Powerful Features."
+                author="Lucas P"
+              />
+              {/* Card 6 */}
+              <TestimonialCard
+                title="Incredible Trading Platform"
+                description="The Most Responsive Trading Platform I've Ever Used. Perfect For Day Traders Who Need Speed And Reliability."
+                author="Daniel M"
+              />
             </div>
 
             {/* Bottom Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6">
+              {/* Card 1 */}
+              <TestimonialCard
+                title="Seamless Trading Experience"
+                description="The Platform's Interface Is Intuitive And The Execution Speed Is Remarkable. Perfect For Both Beginners And Pros."
+                author="John D"
+              />
+              {/* Card 2 */}
+              <TestimonialCard
+                title="Revolutionary Trading Tools"
+                description="The Artificial Tools And Real-Time Data Have Given Me An Edge In The Market I Have Never Had Before."
+                author="Lucas P"
+              />
+              {/* Card 3 */}
+              <TestimonialCard
+                title="Secure And Reliable"
+                description="Feel Confident Trading Here Knowing My Assets Are Secure. The Platform Has Never Let Me Down During Versatile Markets."
+                author="Daniel M"
+              />
+              {/* Card 4 */}
+              <TestimonialCard
+                title="Perfect For Day Trading"
+                description="The Platform's Speed And Low Spreads Make It Ideal For Day Traders Who Need Quick Execution And High Liquidity."
+                author="Lucas P"
+              />
               {/* Card 5 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Seamless Trading Experience</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    The Platform's Interface Is Intuitive And The Execution Speed Is Remarkable. Perfect For Both Beginners And Pros.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Daniel M</span>
-                  </div>
-                </CardContent>
-              </Card>
-
+              <TestimonialCard
+                title="Mobile Trading Done Right"
+                description="The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now."
+                author="Lucas P"
+              />
               {/* Card 6 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Revolutionary Trading Tools</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    The Analytical Tools And Real-Time Data Have Given Me An Edge In The Market I Never Had Before.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Lucas P</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Spacer for center */}
-              <div className="lg:col-span-1 hidden lg:block"></div>
-
-              {/* Card 7 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Outstanding Customer Support</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    Not Only Is The Platform Excellent, But The Few Times I've Needed Help, The Support Team Was Responsive And Knowledgeable.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Daniel M</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Card 8 */}
-              <Card className="bg-slate-800/50 border-slate-700 lg:col-span-1">
-                <CardContent className="p-4">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">D</span>
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-white mb-2">Mobile Trading Done Right</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now.
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 bg-slate-600 rounded-full mr-2"></div>
-                    <span className="text-slate-300 text-sm">Lucas P</span>
-                  </div>
-                </CardContent>
-              </Card>
+              <TestimonialCard
+                title="Best Crypto Platform For Professionals"
+                description="As A Professional Trader, I Need Reliability And Advanced Features. This Platform Delivers Both Flawlessly."
+                author="Daniel M"
+              />
             </div>
           </div>
         </div>
@@ -410,6 +315,49 @@ const TelegramSvg = () => {
     <svg xmlns="http://www.w3.org/2000/svg" className="size-6" width="20px" height="20px" viewBox="2 2 20 20" fill="none" preserveAspectRatio="xMidYMid meet"
     >
       <path d="M12 4C10.4178 4 8.87103 4.46919 7.55544 5.34824C6.23985 6.22729 5.21447 7.47672 4.60897 8.93853C4.00347 10.4003 3.84504 12.0089 4.15372 13.5607C4.4624 15.1126 5.22433 16.538 6.34315 17.6569C7.46197 18.7757 8.88743 19.5376 10.4393 19.8463C11.9911 20.155 13.5997 19.9965 15.0615 19.391C16.5233 18.7855 17.7727 17.7602 18.6518 16.4446C19.5308 15.129 20 13.5823 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4ZM15.93 9.48L14.62 15.67C14.52 16.11 14.26 16.21 13.89 16.01L11.89 14.53L10.89 15.46C10.8429 15.5215 10.7824 15.5715 10.7131 15.6062C10.6438 15.6408 10.5675 15.6592 10.49 15.66L10.63 13.66L14.33 10.31C14.5 10.17 14.33 10.09 14.09 10.23L9.55 13.08L7.55 12.46C7.12 12.33 7.11 12.03 7.64 11.83L15.35 8.83C15.73 8.72 16.05 8.94 15.93 9.48Z" fill="currentcolor" />
+    </svg>
+  )
+}
+
+interface TestimonialCardProps {
+  title: string;
+  description: string;
+  author: string;
+}
+
+const TestimonialCard: FC<TestimonialCardProps> = ({ title, description, author }) => {
+  return (
+    <Card className="bg-slate-800/50 border-0 lg:col-span-1 relative overflow-hidden pb-2 pt-4">
+      <CardContent className="h-full flex flex-col justify-between px-4">
+        <QuoteSvg className="absolute top-0 right-0 size-[155px] opacity-10" />
+        <div className="relative z-10">
+          <div className="flex items-center mb-3">
+            <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center mr-2">
+              <span className="text-white text-xm font-bold">icon</span>
+            </div>
+          </div>
+          <h4 className="font-semibold text-white mb-2 text-xs">{title}</h4>
+          <p className="text-slate-300 text-xs mb-3">
+            {description}
+          </p>
+        </div>
+        <div className="flex items-center mt-auto">
+          <span className="text-slate-300 text-sm mr-2">{author}</span>
+          <div className="w-6 h-6 bg-slate-600 rounded-full "></div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+interface QuoteSvgProps {
+  className?: string;
+}
+
+const QuoteSvg: FC<QuoteSvgProps> = ({ className }) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-1 4 24 24" fill="currentColor" className={className} >
+      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
     </svg>
   )
 }
