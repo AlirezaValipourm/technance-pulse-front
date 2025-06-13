@@ -1,21 +1,27 @@
 "use client"
-import { cn } from "@/lib/utils";
+import { FC, useState } from "react";
+import { Globe3D } from "@/components/Globe3D";
+import { StarField } from "@/components/StarField";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/uiKit/components/ui/accordion";
+import { Badge } from "@/components/uiKit/components/ui/badge";
+import { Button } from "@/components/uiKit/components/ui/button";
+import { Card, CardContent } from "@/components/uiKit/components/ui/card";
+import { cn } from "@/components/uiKit/lib/utils";
+import { motion } from "framer-motion";
 import { CheckCircle2, HelpCircle, MoveRight, Radar, Settings } from "lucide-react";
 import Image from "next/image";
-import { FC } from "react";
-import { Globe3D, StarField, AnimatedCounter } from "@/components/GlobalTradesSection";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
-import { Badge } from "../components/ui/badge";
-import { Button } from "../components/ui/button";
-import { Card, CardContent } from "../components/ui/card";
-import { motion } from "framer-motion";
+import { TradeType } from "@/core/declarations/enums/tradeType";
+import { TTrade } from "@/core/declarations/types/trade";
+import { TGeoLocation } from "@/core/declarations/types/geoLocation";
+import { locationToAngles } from "@/core/utils/locationToAngles";
 
 export default function Home() {
+    const [globeFocusLocation, setGlobeFocusLocation] = useState<TGeoLocation | undefined>() // globe start location
     // Mock trade data
     const mockTrades = [
         {
             id: '1',
-            type: 'LONG' as const,
+            type: TradeType.LONG,
             amount: '2.456',
             asset: 'BTC',
             position: { lat: 40.7128, lng: -74.0060 },
@@ -23,7 +29,7 @@ export default function Home() {
         },
         {
             id: '2',
-            type: 'SHORT' as const,
+            type: TradeType.SHORT,
             amount: '15.789',
             asset: 'ETH',
             position: { lat: 51.5074, lng: -0.1278 },
@@ -31,7 +37,7 @@ export default function Home() {
         },
         {
             id: '3',
-            type: 'LONG' as const,
+            type: TradeType.LONG,
             amount: '8.234',
             asset: 'SOL',
             position: { lat: 35.6762, lng: 139.6503 },
@@ -39,7 +45,7 @@ export default function Home() {
         },
         {
             id: '4',
-            type: 'SHORT' as const,
+            type: TradeType.SHORT,
             amount: '4.567',
             asset: 'ADA',
             position: { lat: -33.8688, lng: 151.2093 },
@@ -47,7 +53,7 @@ export default function Home() {
         },
         {
             id: '5',
-            type: 'LONG' as const,
+            type: TradeType.LONG,
             amount: '12.345',
             asset: 'DOT',
             position: { lat: 1.3521, lng: 103.8198 },
@@ -55,8 +61,8 @@ export default function Home() {
         },
     ];
 
-    const handleTradeClick = (trade: any) => {
-        console.log('Trade clicked:', trade);
+    const handleTradeClick = (trade: TTrade) => {
+        setGlobeFocusLocation([trade.position.lat, trade.position.lng])
     }
 
     return (
@@ -163,7 +169,7 @@ export default function Home() {
 
                     {/* Testimonials Grid */}
                     <div className="relative max-w-full mx-auto">
-                        <Globe3D trades={mockTrades} onTradeClick={handleTradeClick} />
+                        <Globe3D trades={mockTrades} focusLocation={globeFocusLocation} />
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6 w-[110%]">
                             <TestimonialCard
                                 title="Mobile Trading Done Right"
