@@ -2,9 +2,9 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/
 import { FC } from 'react'
 import { IFAQItemProps } from './FAQItem.type'
 
-export const FAQItem: FC<IFAQItemProps> = ({ question, answer }) => {
+export const FAQItem: FC<IFAQItemProps> = ({ question, answer, index }) => {
     return (
-        <AccordionItem value="item-1" className="border-slate-700">
+        <AccordionItem value={`item-${index}`} className="border-slate-700">
             <AccordionTrigger className="text-left font-semibold text-white hover:text-[#7267FF] py-6">
                 {question}
             </AccordionTrigger>
