@@ -8,7 +8,7 @@ import { IFaq } from '@/core/declarations/types/faq'
 import { HelpCircle } from 'lucide-react'
 import React from 'react'
 
-export const FAQSection = () => {
+export const Footer = () => {
     return (
         <div className="text-white py-20" >
             <div className="container mx-auto px-4">
@@ -34,7 +34,7 @@ export const FAQSection = () => {
                     <div className="space-y-4">
                         <Accordion type="single" collapsible className="space-y-2">
                             {FAQList.map((faq: IFaq, index: number) => (
-                                <FAQItem key={index} question={faq.question} answer={faq.answer} />
+                                <FAQItem key={index} question={faq.question} answer={faq.answer} index={index} />
                             ))}
                         </Accordion>
                     </div>

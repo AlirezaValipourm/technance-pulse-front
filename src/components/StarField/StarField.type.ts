@@ -1,5 +1,5 @@
 export interface IStarFieldProps {
     starCount: number;
-    starColor: [number, number, number];
+    starColor: string;
     className?: string;
 }

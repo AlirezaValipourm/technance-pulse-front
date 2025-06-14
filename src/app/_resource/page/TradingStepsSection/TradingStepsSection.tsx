@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export const TradingStepsSection = () => {
     return (
-        <div className="mx-auto px-4 py-10 text-center min-h-screen text-white">
+        <div className="mx-auto px-4 py-10 text-center text-white">
             <div className="flex justify-center mb-15">
                 <Badge variant="default" className="bg-black px-2 py-1 text-slate-300 border-slate-700 flex items-center rounded-full">
                     <Settings className="h-4 w-4 mr-2" />

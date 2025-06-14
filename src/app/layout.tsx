@@ -1,7 +1,7 @@
 import { cn } from "@/components/uiKit/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { FAQSection } from "@/app/_resource/layout/FAQSection";
+import { Footer } from "@/app/_resource/layout/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(geistSans.variable, geistMono.variable, "antialiased bg-black container")}
+        className={cn(geistSans.variable, geistMono.variable, "antialiased bg-black container mx-auto w-full h-full")}
       >
         {children}
-        <FAQSection />
+        <Footer />
       </body>
     </html>
   );

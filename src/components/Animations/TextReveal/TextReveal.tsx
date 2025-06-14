@@ -13,7 +13,7 @@ export const TextReveal: FC<ITextRevealProps> = ({
 }) => {
 
     return (
-        <div className={cn("flex items-center justify-center gap-[4px] whitespace-nowrap", className)}>
+        <div className={cn("flex items-center justify-center gap-[4px]", className)}>
             {text.split(" ").map((word: string, index: number) => {
                 const cleanWord = word.replace(/[.,!?]/g, "");
                 const isHighlighted = highlight?.includes(cleanWord);
