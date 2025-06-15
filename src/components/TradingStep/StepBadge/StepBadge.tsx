@@ -1,9 +1,9 @@
+import { Typography } from "@/components/Typography/Typography"
+import { Badge } from "@/components/uiKit/components/ui/badge"
+import { cn } from "@/components/uiKit/lib/utils"
+import { CheckCircle2 } from "lucide-react"
 import { FC } from "react"
 import { IStepBadgeProps } from "./StepBadge.type"
-import { cn } from "@/components/uiKit/lib/utils"
-import { Badge } from "@/components/uiKit/components/ui/badge"
-import { CheckCircle2 } from "lucide-react"
-import { Typography } from "@/components/Typography/Typography"
 
 export const StepBadge: FC<IStepBadgeProps> = ({ step, isActive }) => {
     return (

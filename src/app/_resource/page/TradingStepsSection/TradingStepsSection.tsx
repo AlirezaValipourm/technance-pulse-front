@@ -1,13 +1,25 @@
-import { Button } from '@/components/uiKit/components/ui/button'
+"use client"
 import { TextReveal } from '@/components/Animations/TextReveal'
-import { Badge } from '@/components/uiKit/components/ui/badge'
-import { MoveRight, Settings } from 'lucide-react'
-import React from 'react'
 import { TradingStep } from '@/components/TradingStep'
+import { Typography } from '@/components/Typography'
+import { Badge } from '@/components/uiKit/components/ui/badge'
+import { Button } from '@/components/uiKit/components/ui/button'
+import { motion, AnimatePresence } from 'framer-motion'
+import { MoveRight, Settings } from 'lucide-react'
 import Image from 'next/image'
-import { Typography } from '@/components/Typography/Typography'
+import { useState, useEffect } from 'react'
 
 export const TradingStepsSection = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const images = ["/images/step1-1.png", "/images/step1-2.png"]
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % images.length)
+        }, 3000) // Change image every 3 seconds
+
+        return () => clearInterval(interval)
+    }, [])
     return (
         <div className="mx-auto px-4 py-10 text-center text-white">
             <div className="flex justify-center">
@@ -50,8 +62,29 @@ export const TradingStepsSection = () => {
                         title="FUND YOUR ACCOUNT"
                         description="Easily deposit crypto or fiat using secure payment methods and start trading in minutes."
                         content={
-                            <div className="flex items-center justify-center object-fill">
-                                <Image src={"/images/step1.png"} alt="step1" fill />
+                            <div className="flex items-center justify-center object-fill relative h-full">
+                                {images.map((image, index) => (
+                                    <motion.div
+                                        key={index}
+                                        className="absolute inset-0 h-full"
+                                        initial={false}
+                                        animate={{ 
+                                            opacity: currentImageIndex === index ? 1 : 0,
+                                            scale: currentImageIndex === index ? 1 : 0.95
+                                        }}
+                                        transition={{ 
+                                            duration: 1, 
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        <Image 
+                                            src={image} 
+                                            alt={`step1-${index + 1}`} 
+                                            fill 
+                                            // className='h-full object-contain'
+                                        />
+                                    </motion.div>
+                                ))}
                             </div>
                         }
                     />

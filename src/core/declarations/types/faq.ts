@@ -1,4 +1,4 @@
-export interface IFaq {
+export type TFaq = {
     question: string;
     answer: string;
 }

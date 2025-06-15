@@ -1,5 +1,6 @@
+"use client"
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { FC, useEffect } from "react";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { IAnimatedCounterProps } from "./AnimatedCounter.type";
 
 export const AnimatedCounter: FC<IAnimatedCounterProps> = ({ from, to, duration = 1.5, className, shouldStart = true }) => {

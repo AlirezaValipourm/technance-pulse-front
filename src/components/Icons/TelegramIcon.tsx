@@ -1,6 +1,6 @@
+import { cn } from '@/components/uiKit/lib/utils';
 import { FC } from "react";
 import { IIconProps } from "./IconProps.type";
-import { cn } from "../uiKit/lib/utils";
 
 export const TelegramIcon: FC<IIconProps> = ({ className }) => {
     return (

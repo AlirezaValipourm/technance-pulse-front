@@ -1,14 +1,14 @@
+import { Typography } from "@/components/Typography"
+import { Card, CardContent } from "@/components/uiKit/components/ui/card"
 import { FC } from "react"
-import { ITradingStepProps } from "./TradingStep.type"
-import { Card, CardContent } from "../uiKit/components/ui/card"
 import { StepBadge } from "./StepBadge"
-import { Typography } from "../Typography/Typography"
+import { ITradingStepProps } from "./TradingStep.type"
 
 export const TradingStep: FC<ITradingStepProps> = ({ step, isActive, title, description, content }) => {
     return (
         <div>
             <Card className="border-slate-700 overflow-hidden h-80 p-0">
-                <CardContent className="h-full relative">
+                <CardContent className="h-full relative px-0">
                     {content}
                 </CardContent>
             </Card>

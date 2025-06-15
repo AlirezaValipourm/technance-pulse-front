@@ -1,13 +1,12 @@
 import { FAQItem } from '@/components/FAQItem'
 import { TelegramIcon } from '@/components/Icons'
+import { Typography } from '@/components/Typography/Typography'
 import { Accordion } from '@/components/uiKit/components/ui/accordion'
 import { Badge } from '@/components/uiKit/components/ui/badge'
 import { Button } from '@/components/uiKit/components/ui/button'
 import { FAQList } from '@/core/declarations/constants/FAQList'
-import { IFaq } from '@/core/declarations/types/faq'
+import { TFaq } from '@/core/declarations/types/faq'
 import { HelpCircle } from 'lucide-react'
-import React from 'react'
-import { Typography } from '@/components/Typography/Typography'
 
 export const Footer = () => {
     return (
@@ -34,7 +33,7 @@ export const Footer = () => {
                     <div></div>
                     <div className="space-y-4">
                         <Accordion type="single" collapsible className="space-y-2">
-                            {FAQList.map((faq: IFaq, index: number) => (
+                            {FAQList.map((faq: TFaq, index: number) => (
                                 <FAQItem key={index} question={faq.question} answer={faq.answer} index={index} />
                             ))}
                         </Accordion>

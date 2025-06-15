@@ -1,9 +1,9 @@
-import React, { FC, useCallback } from 'react';
-import Particles from 'react-particles';
-import { loadSlim } from 'tsparticles-slim';
-import type { Engine, ISourceOptions } from 'tsparticles-engine';
-import { IStarFieldProps } from './StarField.type';
 import { cn } from '@/components/uiKit/lib/utils';
+import { FC, useCallback } from 'react';
+import Particles from 'react-particles';
+import type { Engine, ISourceOptions } from 'tsparticles-engine';
+import { loadSlim } from 'tsparticles-slim';
+import { IStarFieldProps } from './StarField.type';
 
 export const StarField:FC<IStarFieldProps> = ({ starCount, starColor, className }) => {
     

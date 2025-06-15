@@ -1,3 +1,4 @@
+"use client"
 import { AnimatedCounter } from '@/components/Animations/AnimatedCounter'
 import { TextReveal } from '@/components/Animations/TextReveal'
 import { EmblaCarousel } from '@/components/EmblaCarousel/EmblaCarousel'
@@ -6,91 +7,17 @@ import { CircleIcon } from '@/components/Icons'
 import { StarField } from '@/components/StarField'
 import { Testimonial } from '@/components/Testimonial'
 import { TradeList } from '@/components/TradeList.tsx/TradeList'
-import { Typography } from '@/components/Typography/Typography'
+import { Typography } from '@/components/Typography'
 import { Badge } from '@/components/uiKit/components/ui/badge'
 import { Button } from '@/components/uiKit/components/ui/button'
+import { testimonialsList } from '@/core/declarations/constants/TestimonialList'
 import { TTrade } from '@/core/declarations/types/trade'
 import { useMediaQuery } from '@/core/utils/useMediaQuery'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { Radar, TrendingDown, TrendingUp } from 'lucide-react'
 import { useRef, useState } from 'react'
 
-const testimonialsFirstRow = [
-    {
-        title: "Mobile Trading Done Right",
-        description: "The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now.",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=0"
-    },
-    {
-        title: "Best Crypto Platform For Professionals",
-        description: "As A Professional Trader, I Need Reliability And Advanced Features. This Platform Delivers Both Flawlessly.",
-        author: "Daniel M",
-        avatar: "https://i.pravatar.cc/48?img=1"
-    },
-    {
-        title: "Transformed My Trading Strategy",
-        description: "The Platform's Unique Features Have Allowed Me To Implement Strategies I Couldn't Execute Elsewhere",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=2"
-    },
-    {
-        title: "Fast, Reliable & Perfect For Bitcoin Trading",
-        description: "The Fastest Crypto Trading Platform I've Experienced. The Low Spreads And Swift Execution Are Exactly What Four Traders Need.",
-        author: "John D",
-        avatar: "https://i.pravatar.cc/48?img=3"
-    },
-    {
-        title: "Most Trading Experience!",
-        description: "I've Been Crypto Trading For Years And This Is By Far The Best Combination Of Sleek Design And Powerful Features.",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=4"
-    },
-    {
-        title: "Incredible Trading Platform",
-        description: "The Most Responsive Trading Platform I've Ever Used. Perfect For Day Traders Who Need Speed And Reliability.",
-        author: "Daniel M",
-        avatar: "https://i.pravatar.cc/48?img=5"
-    },
-    {
-        title: "Seamless Trading Experience",
-        description: "The Platform's Interface Is Intuitive And The Execution Speed Is Remarkable. Perfect For Both Beginners And Pros.",
-        author: "John D",
-        avatar: "https://i.pravatar.cc/48?img=6"
-    },
-    {
-        title: "Revolutionary Trading Tools",
-        description: "The Artificial Tools And Real-Time Data Have Given Me An Edge In The Market I Have Never Had Before.",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=7"
-    },
-    {
-        title: "Secure And Reliable",
-        description: "Feel Confident Trading Here Knowing My Assets Are Secure. The Platform Has Never Let Me Down During Versatile Markets.",
-        author: "Daniel M",
-        avatar: "https://i.pravatar.cc/48?img=8"
-    },
-    {
-        title: "Perfect For Day Trading",
-        description: "The Platform's Speed And Low Spreads Make It Ideal For Day Traders Who Need Quick Execution And High Liquidity.",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=9"
-    },
-    {
-        title: "Mobile Trading Done Right",
-        description: "The Mobile Experience Is Just As Powerful As Desktop. I Can Trade Confidently From Anywhere Now.",
-        author: "Lucas P",
-        avatar: "https://i.pravatar.cc/48?img=10"
-    },
-    {
-        title: "Best Crypto Platform For Professionals",
-        description: "As A Professional Trader, I Need Reliability And Advanced Features. This Platform Delivers Both Flawlessly.",
-        author: "Daniel M",
-        avatar: "https://i.pravatar.cc/48?img=11"
-    }
-];
-
-export const TestimonialsSection = () => {
+export const IntroductionSection = () => {
     const isDesktop = useMediaQuery('sm'); // for simplicity tablet mode and desktop mode are the same
     const starFieldRef = useRef<HTMLDivElement | null>(null);
     const globeRef = useRef<HTMLDivElement | null>(null);
@@ -169,7 +96,7 @@ export const TestimonialsSection = () => {
                     {/* Testimonials Grid */}
                     <div className='flex flex-col gap-4 relative z-0' ref={testimonialsGridRef}>
                         <EmblaCarousel
-                            slides={testimonialsFirstRow.map((testimonial, index) => (
+                            slides={testimonialsList.map((testimonial, index) => (
                                 <Testimonial
                                     key={index}
                                     avatar={testimonial.avatar}
@@ -181,7 +108,7 @@ export const TestimonialsSection = () => {
                             direction='forward'
                         />
                         <EmblaCarousel
-                            slides={testimonialsFirstRow.map((testimonial, index) => (
+                            slides={testimonialsList.map((testimonial, index) => (
                                 <Testimonial
                                     key={index}
                                     avatar={testimonial.avatar}
@@ -197,10 +124,9 @@ export const TestimonialsSection = () => {
                             className="absolute top-0 left-0 w-full h-full z-10 bg-black"
                             style={{ opacity: useTransform(testimonialsGridOpacity, (value) => parseInt(value) / 100) }}
                         />
-
                     </div>
 
-                    {/* Globe3D with fade-in animation positioned in center */}
+                    {/* Globe3D positioned in center */}
                     <div className='absolute top-0 w-full h-full flex items-center justify-center overflow-hidden z-20'>
                         <motion.div
                             className="flex relative items-center justify-center w-fit"
@@ -243,10 +169,12 @@ export const TestimonialsSection = () => {
                             <Globe3D focusLocation={selectedTrade?.position ?? undefined} ref={globeRef} />
                         </motion.div>
                     </div>
+                    {/* star field */}
                     <div className="h-[500px] left-0 w-full flex items-center justify-center overflow-hidden z-10" ref={starFieldRef}>
                         <motion.div
-                            initial={{ top: 500 }}
-                            whileInView={{ top: 0 }}
+                            initial={{ top: 500, opacity: 0 }}
+                            whileInView={{ top: 0, opacity: 1 }}
+                            viewport={{ once: true, margin: "0px" }}
                             exit={{
                                 top: 500
                             }}
@@ -256,7 +184,7 @@ export const TestimonialsSection = () => {
                             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                                 <StarField starCount={800} starColor="#ffffff" />
                             </div>
-                            <div className="relative w-full h-full flex items-start justify-center z-50 md:z-0">
+                            <div className="relative w-full h-full flex items-start sm:items-center justify-center z-50 md:z-0">
                                 <div className="flex flex-col gap-5 w-fit sm:me-auto sm:ms-10">
                                     <div className='text-xl md:text-3xl font-bold flex flex-col items-center sm:items-start'>
                                         <span className='text-highlight'>LIVE TRADES</span>

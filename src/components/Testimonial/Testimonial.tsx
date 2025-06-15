@@ -1,9 +1,9 @@
 import { QuoteIcon, TestimonialIcon } from "@/components/Icons"
 import { ITestimonialProps } from "@/components/Testimonial/Testimonial.type"
+import { Typography } from "@/components/Typography"
 import { Card, CardContent } from "@/components/uiKit/components/ui/card"
 import Image from "next/image"
 import { FC } from "react"
-import { Typography } from "../Typography/Typography"
 
 export const Testimonial: FC<ITestimonialProps> = ({ title, description, author, avatar }) => {
     return (

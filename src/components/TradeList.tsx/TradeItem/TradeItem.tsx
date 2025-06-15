@@ -1,9 +1,9 @@
-import Image from "next/image"
-import { ITradeItemProps } from "./TradeItem.type"
 import { Typography } from "@/components/Typography/Typography"
+import { cn } from "@/components/uiKit/lib/utils"
 import { TradeType } from "@/core/declarations/enums/tradeType"
 import { TrendingDown, TrendingUp } from "lucide-react"
-import { cn } from "@/components/uiKit/lib/utils"
+import Image from "next/image"
+import { ITradeItemProps } from "./TradeItem.type"
 
 export const TradeItem: React.FC<ITradeItemProps> = ({ trade, onClick , className }) => {
     return (
