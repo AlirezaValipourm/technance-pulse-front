@@ -1,6 +1,6 @@
+import { cn } from "@/components/uiKit/lib/utils";
 import { ElementType, FunctionComponent } from "react";
 import { ITypographyProps, TVariant } from "./Typography.type";
-import { cn } from "@/components/uiKit/lib/utils";
 
 const tags: Record<TVariant, ElementType> = {
     h1: "h1",

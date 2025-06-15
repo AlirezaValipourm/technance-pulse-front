@@ -1,8 +1,9 @@
+"use client"
+import { cn } from '@/components/uiKit/lib/utils';
 import { TTrade } from "@/core/declarations/types/trade";
 import { generateMockTrade } from "@/core/services/mock/tradeGenerator.mock";
 import { AnimatePresence, motion } from "motion/react";
 import { FC, useEffect, useState } from "react";
-import { cn } from "../uiKit/lib/utils";
 import { TradeItem } from "./TradeItem";
 import { ITradeListProps } from "./TradeList.type";
 

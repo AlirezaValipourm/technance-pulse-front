@@ -1,6 +1,6 @@
-import { IIconProps } from './IconProps.type'
-import { FC } from 'react'
 import { cn } from '@/components/uiKit/lib/utils'
+import { FC } from 'react'
+import { IIconProps } from './IconProps.type'
 
 export const TestimonialIcon: FC<IIconProps> = ({ className }) => {
     return (

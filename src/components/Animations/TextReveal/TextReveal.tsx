@@ -1,9 +1,9 @@
+import { Typography } from "@/components/Typography/Typography";
+import { ITypographyProps } from "@/components/Typography/Typography.type";
 import { cn } from "@/components/uiKit/lib/utils";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { FC } from "react";
 import { ITextRevealProps } from "./TextReveal.type";
-import { ITypographyProps } from "@/components/Typography/Typography.type";
-import { Typography } from "@/components/Typography/Typography";
 
 export const TextReveal: FC<ITextRevealProps & Omit<ITypographyProps, "children">> = ({
     text,

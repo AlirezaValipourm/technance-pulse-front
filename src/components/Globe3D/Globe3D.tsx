@@ -1,5 +1,6 @@
+"use client"
 import createGlobe from "cobe";
-import { FC, useEffect, useRef, useMemo, useCallback } from "react";
+import { FC, useCallback, useEffect, useRef } from "react";
 import { IGlobe3DProps } from "./Globe3D.type";
 
 // Animation constants

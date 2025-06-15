@@ -1,5 +1,5 @@
-import { IIconProps } from "./IconProps.type";
 import { FC } from "react";
+import { IIconProps } from "./IconProps.type";
 
 export const QuoteIcon: FC<IIconProps> = ({ className }) => {
     return (

@@ -1,12 +1,11 @@
-"use client"
-import { TestimonialsSection } from "@/app/_resource/page/TestimonialsSection";
+import { IntroductionSection } from "@/app/_resource/page/IntroductionSection";
 import { TradingStepsSection } from "@/app/_resource/page/TradingStepsSection";
 
 export default function Home() {
     return (
-        <div>
+        <>
             <TradingStepsSection />
-            <TestimonialsSection />
-        </div>
+            <IntroductionSection />
+        </>
     );
 }

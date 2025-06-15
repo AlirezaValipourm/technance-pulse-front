@@ -31,19 +31,19 @@ export const CryptoAssetsList: Array<CryptoAsset> = [
         symbol: "LTC",
         image: "https://coin-images.coingecko.com/coins/images/2/small/litecoin.png",
     },
-    // {
-    //     name: "Dogecoin",
-    //     symbol: "DOGE",
-    //     image: "https://assets.coingecko.com/coins/images/1/large/dogecoin.png",
-    // },
-    // {
-    //     name: "Chainlink",
-    //     symbol: "LINK",
-    //     image: "https://assets.coingecko.com/coins/images/1/large/chainlink.png",
-    // },
-    // {
-    //     name: "Tether",
-    //     symbol: "USDT",
-    //     image: "https://assets.coingecko.com/coins/images/1/large/tether.png",
-    // }
+    {
+        name: "Dogecoin",
+        symbol: "DOGE",
+        image: "https://coin-images.coingecko.com/coins/images/5/small/dogecoin.png",
+    },
+    {
+        name: "Chainlink",
+        symbol: "LINK",
+        image: "https://assets.coingecko.com/coins/images/1/large/chainlink.png",
+    },
+    {
+        name: "Tether",
+        symbol: "USDT",
+        image: "https://coin-images.coingecko.com/coins/images/325/small/Tether.png",
+    }
 ]
