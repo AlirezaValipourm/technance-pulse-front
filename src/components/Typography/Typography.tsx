@@ -23,7 +23,7 @@ const sizes: Record<TVariant, string> = {
     h5: "text-xl font-bold sm:text-lg",
     body: "text-lg sm:text-md",
     "body-small": "text-md sm:text-sm",
-    tiny: "",
+    tiny: "text-xs",
     small: "text-sm sm:text-xs",
     medium: "text-sm sm:text-xs",
     large: "text-sm sm:text-xs",
