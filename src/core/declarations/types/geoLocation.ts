@@ -1,1 +1,1 @@
-export type TGeoLocation = [number, number]
+export type TGeoLocation = { lat: number, lng: number }

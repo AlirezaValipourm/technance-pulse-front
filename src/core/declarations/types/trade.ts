@@ -7,4 +7,6 @@ export type TTrade = {
     asset: string;
     position: { lat: number; lng: number };
     timestamp: number;
+    assetName: string;
+    image: string;
 }
