@@ -7,6 +7,7 @@ import { FAQList } from '@/core/declarations/constants/FAQList'
 import { IFaq } from '@/core/declarations/types/faq'
 import { HelpCircle } from 'lucide-react'
 import React from 'react'
+import { Typography } from '@/components/Typography/Typography'
 
 export const Footer = () => {
     return (
@@ -14,19 +15,19 @@ export const Footer = () => {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
                     <div className="space-y-6">
-                        <Badge className="bg-black px-2 py-1 text-slate-300 border-slate-700 flex items-center rounded-full">
+                        <Badge className="bg-black px-2 py-1 text-slate-300 border-gray-900 flex items-center rounded-full mb-12">
                             <HelpCircle className="h-5 w-5 text-slate-400" />
-                            Frequently Questions
+                            <Typography as="span" variant="body" className="text-xs">Frequently Questions</Typography>
                         </Badge>
 
-                        <h2 className="text-xl md:text-3xl font-bold">
+                        <Typography as="h2" variant="h2" className="text-xl md:text-3xl font-bold">
                             YOUR QUESTIONS{" "}
-                            <span className="text-[#7267FF]">ANSWERED</span>
-                        </h2>
+                            <span className="text-highlight">ANSWERED</span>
+                        </Typography>
 
                         <Button className=" text-white px-6 py-3 font-medium">
-                            Chat with Support
-                            <TelegramIcon />
+                            <Typography as="span" variant="body" className="text-md flex items-center">Chat with Support</Typography>
+                            <TelegramIcon className="w-6 h-6" />
                         </Button>
                     </div>
 
