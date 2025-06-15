@@ -18,7 +18,7 @@ export const TextReveal: FC<ITextRevealProps & Omit<ITypographyProps, "children"
 }) => {
 
     return (
-        <div className={cn("flex items-center justify-center gap-[4px] relative", wrapperClassName)}>
+        <div className={cn("flex items-center flex-wrap justify-center gap-[4px] relative", wrapperClassName)}>
             {text.split(" ").map((word: string, index: number) => {
                 const cleanWord = word.replace(/[.,!?]/g, "");
                 const isHighlighted = highlight?.includes(cleanWord);

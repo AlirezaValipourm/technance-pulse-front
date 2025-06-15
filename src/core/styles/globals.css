@@ -83,6 +83,7 @@
   --button-primary: oklch(0.5977 0.2206 278.53);
   --testimonial-gradient-start: oklch(0.1845 0.0144 278.52);
   --testimonial-gradient-end: oklch(0.2393 0.0474 295.48);
+  --layout-bg: oklch(0.0747 0.0219 279.71);
 }
 
 .dark {
@@ -124,6 +125,7 @@
   --button-primary: oklch(0.5977 0.2206 278.53);
   --testimonial-gradient-start: oklch(0.1845 0.0144 278.52);
   --testimonial-gradient-end: oklch(0.5488 0.37 295.48);
+  --layout-bg: oklch(0.0747 0.0219 279.71);
 }
 
 @theme inline {
@@ -133,6 +135,7 @@
   --color-button-primary: var(--button-primary);
   --color-testimonial-gradient-start: var(--testimonial-gradient-start);
   --color-testimonial-gradient-end: var(--testimonial-gradient-end);
+  --color-layout-bg: var(--layout-bg);
 }
 
 @layer base {

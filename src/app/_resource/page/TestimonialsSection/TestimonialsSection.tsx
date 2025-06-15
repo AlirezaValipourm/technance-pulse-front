@@ -10,6 +10,7 @@ import { Typography } from '@/components/Typography/Typography'
 import { Badge } from '@/components/uiKit/components/ui/badge'
 import { Button } from '@/components/uiKit/components/ui/button'
 import { TTrade } from '@/core/declarations/types/trade'
+import { useMediaQuery } from '@/core/utils/useMediaQuery'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { Radar, TrendingDown, TrendingUp } from 'lucide-react'
 import { useRef, useState } from 'react'
@@ -90,6 +91,7 @@ const testimonialsFirstRow = [
 ];
 
 export const TestimonialsSection = () => {
+    const isDesktop = useMediaQuery('sm'); // for simplicity tablet mode and desktop mode are the same
     const starFieldRef = useRef<HTMLDivElement | null>(null);
     const globeRef = useRef<HTMLDivElement | null>(null);
     const testimonialsGridRef = useRef<HTMLDivElement | null>(null);
@@ -200,7 +202,6 @@ export const TestimonialsSection = () => {
 
                     {/* Globe3D with fade-in animation positioned in center */}
                     <div className='absolute top-0 w-full h-full flex items-center justify-center overflow-hidden z-20'>
-
                         <motion.div
                             className="flex relative items-center justify-center w-fit"
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -210,7 +211,7 @@ export const TestimonialsSection = () => {
                                 duration: 1.2,
                                 ease: "linear",
                             }}
-                            style={{ left: globeLeftPosition, top: globeTopPosition }}
+                            style={{ left: isDesktop ? globeLeftPosition : "0%", top: globeTopPosition }}
                         >
                             <motion.div
                                 className={"absolute top-1/2 left-1/2 h-fit -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-20"}
@@ -230,10 +231,14 @@ export const TestimonialsSection = () => {
                             <motion.div
                                 className={"absolute top-[45%] left-1/2 h-fit -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-30"}
                                 style={{
-                                    opacity: globeTradeLayerOpacity
+                                    opacity: globeTradeLayerOpacity,
                                 }}
                             >
                                 <TradeList onClick={handleTradeClick} />
+                                {/* Shadow layer below TradeList */}
+                                <div
+                                    className={"absolute top-[210%] left-[65%] w-100 h-100 z-10 -translate-x-1/2 -translate-y-1/2 bg-black blur-[80px] bg-[radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 75%, transparent 90%)] pointer-events-none"}
+                                />
                             </motion.div>
                             <Globe3D focusLocation={selectedTrade?.position ?? undefined} ref={globeRef} />
                         </motion.div>
@@ -242,9 +247,6 @@ export const TestimonialsSection = () => {
                         <motion.div
                             initial={{ top: 500 }}
                             whileInView={{ top: 0 }}
-                            viewport={{
-                                margin: "0px 0px 0px 0px",
-                            }}
                             exit={{
                                 top: 500
                             }}
@@ -254,9 +256,9 @@ export const TestimonialsSection = () => {
                             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                                 <StarField starCount={800} starColor="#ffffff" />
                             </div>
-                            <div className="relative w-full h-full flex items-center justify-center">
-                                <div className="flex flex-col items-start gap-5 w-fit me-auto ms-10">
-                                    <div className='text-xl md:text-3xl font-bold flex flex-col items-start'>
+                            <div className="relative w-full h-full flex items-start justify-center z-50 md:z-0">
+                                <div className="flex flex-col gap-5 w-fit sm:me-auto sm:ms-10">
+                                    <div className='text-xl md:text-3xl font-bold flex flex-col items-center sm:items-start'>
                                         <span className='text-highlight'>LIVE TRADES</span>
                                         <span>ON TECHNANCE</span>
                                     </div>
