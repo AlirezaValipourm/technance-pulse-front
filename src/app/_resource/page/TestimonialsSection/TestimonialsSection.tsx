@@ -1,14 +1,14 @@
-import React, { useRef } from 'react'
+import { AnimatedCounter } from '@/components/Animations/AnimatedCounter'
 import { TextReveal } from '@/components/Animations/TextReveal'
-import { Globe3D } from '@/components/Globe3D'
+import { EmblaCarousel } from '@/components/EmblaCarousel/EmblaCarousel'
+import { CircleIcon } from '@/components/Icons'
 import { StarField } from '@/components/StarField'
 import { Testimonial } from '@/components/Testimonial'
+import { Typography } from '@/components/Typography/Typography'
 import { Badge } from '@/components/uiKit/components/ui/badge'
-import { Dot, Radar, TrendingDown, TrendingUp } from 'lucide-react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { cn } from '@/components/uiKit/lib/utils'
-import { AnimatedCounter } from '@/components/AnimatedCounter'
-import { CircleIcon } from '@/components/Icons'
+import { motion, useInView } from 'framer-motion'
+import { Radar, TrendingDown, TrendingUp } from 'lucide-react'
+import { useRef } from 'react'
 
 const testimonialsFirstRow = [
     {
@@ -46,10 +46,7 @@ const testimonialsFirstRow = [
         description: "The Most Responsive Trading Platform I've Ever Used. Perfect For Day Traders Who Need Speed And Reliability.",
         author: "Daniel M",
         avatar: "https://i.pravatar.cc/48?img=5"
-    }
-];
-
-const testimonialsSecondRow = [
+    },
     {
         title: "Seamless Trading Experience",
         description: "The Platform's Interface Is Intuitive And The Execution Speed Is Remarkable. Perfect For Both Beginners And Pros.",
@@ -91,51 +88,52 @@ const testimonialsSecondRow = [
 export const TestimonialsSection = () => {
 
     const targetRef = useRef<HTMLDivElement | null>(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-        offset: ['start end', 'end start']
-    })
 
-    const x1 = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
-    const x2 = useTransform(scrollYProgress, [0, 1], ['-10%', '0%'])
+    const isInView = useInView(targetRef);
 
     return (
-        <div className="text-white py-10 relative" ref={targetRef}>
+        <div className="text-white py-10 relative">
             <div className="px-4">
                 <div className="text-center mb-15 w-fit mx-auto">
-                    <Badge className="bg-black px-2 py-1 text-slate-300 border-slate-700 flex items-center rounded-full">
+                    <Badge className="bg-black px-2 py-1 text-slate-300 border-gray-900 flex items-center rounded-full">
                         <Radar />
-                        Real Success, Real Numbers
+                        <Typography>Real Success, Real Numbers</Typography>
                     </Badge>
                 </div>
 
-                <div className="text-center mb-16">
-                    <div className="mb-4">
+                <div className="text-center mb-20">
+                    <div className="mb-8">
                         <TextReveal
                             text="TRUSTED BY TRADERS"
-                            className="text-4xl md:text-4xl font-bold relative text-[#7267FF]"
+                            as="h2"
+                            variant='h2'
+                            className='text-4xl md:text-4xl font-bold text-highlight'
                             duration={0.3}
                             increment={0.05}
                         />
                         <TextReveal
                             text="PROVEN BY RESULTS"
-                            className="text-4xl md:text-4xl font-bold relative"
+                            as="h2"
+                            variant='h2'
+                            className='text-4xl md:text-4xl font-bold'
                             duration={0.3}
                             increment={0.05}
                         />
                     </div>
                     <TextReveal
+                        as="p"
+                        variant='body'
                         text="Join thousands of traders who trust Technance — backed by impressive stats and real user testimonials."
-                        className="text-xl text-slate-300 max-w-2xl mx-auto flex-wrap"
+                        wrapperClassName="text-slate-400 max-w-2xl mx-auto flex-wrap"
                         duration={0.5}
+                        className='text-md'
                     />
                 </div>
 
                 {/* Testimonials Grid */}
-                <div className="relative max-w-full mx-auto overflow-hidden" ref={targetRef}>
-                    {/* <Globe3D trades={mockTrades} focusLocation={globeFocusLocation} /> */}
-                    <motion.div style={{ x: x1 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6 w-[130%] relative">
-                        {testimonialsFirstRow.map((testimonial, index) => (
+                <div className='flex flex-col gap-4'>
+                    <EmblaCarousel
+                        slides={testimonialsFirstRow.map((testimonial, index) => (
                             <Testimonial
                                 key={index}
                                 avatar={testimonial.avatar}
@@ -144,28 +142,34 @@ export const TestimonialsSection = () => {
                                 author={testimonial.author}
                             />
                         ))}
-                    </motion.div>
-
-                    <motion.div style={{ x: x2 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6 w-[130%] relative">
-                        {testimonialsSecondRow.map((testimonial, index) => (
+                        direction='forward'
+                    />
+                    <EmblaCarousel
+                        slides={testimonialsFirstRow.map((testimonial, index) => (
                             <Testimonial
-                                avatar={testimonial.avatar}
                                 key={index}
+                                avatar={testimonial.avatar}
                                 title={testimonial.title}
                                 description={testimonial.description}
                                 author={testimonial.author}
                             />
                         ))}
-                    </motion.div>
+                        direction='backward'
+                    />
                 </div>
-                <div className="h-[500px] flex items-center justify-center">
+
+
+                <div className="relative max-w-full mx-auto overflow-hidden">
+                    {/* <Globe3D trades={mockTrades} focusLocation={globeFocusLocation} /> */}
+                </div>
+                <div className="h-[500px] flex items-center justify-center overflow-hidden" ref={targetRef}>
                     <motion.div
                         initial={{ y: 500 }}
                         whileInView={{ y: 0 }}
                         viewport={{
                             margin: "0px 0px 200px 0px",
                         }}
-                        transition={{ duration: 0.5 , ease:"linear" }}
+                        transition={{ duration: 0.5, ease: "linear" }}
                         className='w-full h-full relative'
                     >
                         <div className="absolute top-0 left-0 w-full h-full">
@@ -174,25 +178,25 @@ export const TestimonialsSection = () => {
                         <div className="relative w-full h-full flex items-center justify-center z-10">
                             <div className="flex flex-col items-start gap-5 w-fit me-auto ms-10">
                                 <div className='text-xl md:text-3xl font-bold flex flex-col items-start'>
-                                    <span className='text-[#7267FF]'>LIVE TRADES</span>
+                                    <span className='text-highlight'>LIVE TRADES</span>
                                     <span>ON TECHNANCE</span>
                                 </div>
                                 <div className='flex items-center gap-2 justify-center'>
                                     <CircleIcon />
-                                    <AnimatedCounter from={546825} to={3267634} className='text-3xl md:text-5xl font-bold leading-[200%]' />
+                                    <AnimatedCounter duration={2.5} from={546825} to={3267634} className='text-3xl md:text-5xl font-bold leading-[200%]' shouldStart={isInView} />
                                 </div>
                                 <div className='flex items-center gap-5'>
-                                    <div className='flex flex-col items-center gap-2 bg-[#0B0D13] rounded-lg p-2'>
+                                    <div className='flex flex-col items-center gap-2 bg-card rounded-lg p-2'>
                                         <div className='flex items-center gap-1'>
-                                            <span className='text-xs text-[#3b9f90] font-medium'>Long trades</span>
-                                            <TrendingUp size={16} className='text-[#3b9f90]' />
+                                            <span className='text-xs text-trade-success font-medium'>Long trades</span>
+                                            <TrendingUp size={16} className='text-trade-success' />
                                         </div>
                                         <span>1,235,456</span>
                                     </div>
-                                    <div className='flex flex-col items-center gap-2 bg-[#0B0D13] rounded-lg p-2'>
+                                    <div className='flex flex-col items-center gap-2 bg-card rounded-lg p-2'>
                                         <div className='flex items-center gap-1'>
-                                            <span className='text-xs text-[#dc406c] font-medium'>Short trades</span>
-                                            <TrendingDown size={16} className='text-[#dc406c]' />
+                                            <span className='text-xs text-trade-failure font-medium'>Short trades</span>
+                                            <TrendingDown size={16} className='text-trade-failure' />
                                         </div>
                                         <span>1,235,456</span>
                                     </div>

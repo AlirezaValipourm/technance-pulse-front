@@ -4,7 +4,7 @@ import { TradingStepsSection } from "@/app/_resource/page/TradingStepsSection";
 
 export default function Home() {
     return (
-        <div className="">
+        <div>
             <TradingStepsSection />
             <TestimonialsSection />
         </div>

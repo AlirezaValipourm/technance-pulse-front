@@ -47,7 +47,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(0.1598 0.0132 270.46);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -76,6 +76,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* custom colors */
+  --text-highlight: oklch(0.6082 0.217 280.98);
+  --trade-success: oklch(0.6403 0.0949 181.53);
+  --trade-failure: oklch(0.6094 0.1933 8.29);
+  --button-primary: oklch(0.5977 0.2206 278.53);
+  --testimonial-gradient-start: oklch(0.1845 0.0144 278.52);
+  --testimonial-gradient-end: oklch(0.2393 0.0474 295.48);
 }
 
 .dark {
@@ -110,12 +117,29 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  /* custom colors */
+  --text-highlight: oklch(0.6082 0.217 280.98);
+  --trade-success: oklch(0.6403 0.0949 181.53);
+  --trade-failure: oklch(0.6094 0.1933 8.29);
+  --button-primary: oklch(0.5977 0.2206 278.53);
+  --testimonial-gradient-start: oklch(0.1845 0.0144 278.52);
+  --testimonial-gradient-end: oklch(0.5488 0.37 295.48);
+}
+
+@theme inline {
+  --color-highlight: var(--text-highlight);
+  --color-trade-success: var(--trade-success);
+  --color-trade-failure: var(--trade-failure);
+  --color-button-primary: var(--button-primary);
+  --color-testimonial-gradient-start: var(--testimonial-gradient-start);
+  --color-testimonial-gradient-end: var(--testimonial-gradient-end);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

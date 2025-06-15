@@ -3,13 +3,14 @@ import { IStepBadgeProps } from "./StepBadge.type"
 import { cn } from "@/components/uiKit/lib/utils"
 import { Badge } from "@/components/uiKit/components/ui/badge"
 import { CheckCircle2 } from "lucide-react"
+import { Typography } from "@/components/Typography/Typography"
 
 export const StepBadge: FC<IStepBadgeProps> = ({ step, isActive }) => {
     return (
         <div className="flex items-center mb-2">
-            <Badge className={cn("mr-3 rounded-full", isActive ? "bg-[#6A64FD]" : "bg-black")}>
-                <CheckCircle2 className={cn("h-5 w-5")} />
-                STEP {step}
+            <Badge className={cn("mr-3 rounded-full", isActive ? "bg-highlight" : "bg-black")}>
+                <CheckCircle2 className={cn("h-6 w-6", isActive ? "text-white" : "text-gray-600")} />
+                <Typography as="span" variant="body" className={cn("text-xs", isActive ? "text-white" : "text-gray-600")}>{`STEP ${step}`}</Typography>
             </Badge>
         </div >
     )
