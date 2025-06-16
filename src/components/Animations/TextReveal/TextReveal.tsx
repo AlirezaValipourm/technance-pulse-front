@@ -1,7 +1,7 @@
 import { Typography } from "@/components/Typography/Typography";
 import { ITypographyProps } from "@/components/Typography/Typography.type";
 import { cn } from "@/components/uiKit/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FC } from "react";
 import { ITextRevealProps } from "./TextReveal.type";
 
