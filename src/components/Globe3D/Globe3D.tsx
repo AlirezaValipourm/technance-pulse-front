@@ -28,7 +28,7 @@ const GLOBE_CONFIG = {
 
 export const Globe3D: FC<IGlobe3DProps> = ({
     focusLocation,
-    markerSize = 0.08,
+    // markerSize = 0.08,
     ref
 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -76,7 +76,7 @@ export const Globe3D: FC<IGlobe3DProps> = ({
     }, []);
 
     // Animation render function
-    const onRender = useCallback((state: any) => {
+    const onRender = useCallback((state: Record<string, number | string>) => {
         const animation = animationRef.current;
 
         if (focusLocation && animation.targetPhi !== undefined && animation.targetTheta !== undefined) {

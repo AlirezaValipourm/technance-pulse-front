@@ -19,7 +19,7 @@ export const AnimatedCounter: FC<IAnimatedCounterProps> = ({ from, to, duration 
     });
 
     return controls.stop;
-  }, [count, to, shouldStart]);
+  }, [count, to, shouldStart, duration]);
 
   return <motion.div className={className}>{formatted}</motion.div>;
 }; 

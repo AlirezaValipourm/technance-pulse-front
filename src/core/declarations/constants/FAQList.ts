@@ -1,6 +1,6 @@
-import { IFaq } from "../types/faq";
+import { TFaq } from "../types/faq";
 
-export const FAQList: Array<IFaq> = [
+export const FAQList: Array<TFaq> = [
     {
         question: " WHAT IS CRYPTOCURRENCY AND HOW DOES IT WORK?",
         answer: "Cryptocurrency is a digital or virtual currency that uses cryptography for security. It operates on blockchain technology, which is a decentralized ledger that records all transactions across a network of computers. Unlike traditional currencies, cryptocurrencies are not controlled by any central authority like a government or bank."
