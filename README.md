@@ -6,7 +6,7 @@ A smooth, sophisticated, interactive web section featuring a 3D Earth globe with
 
 ### ✨ Core Features
 - **Animated Title & Description** - Smooth text animations with blurring effects
-- **Interactive 3D Earth Globe** - Built with Cobe package, featuring realistic Earth visualization
+- **Interactive Custom 3D Earth Globe** - Built a Custom Cobe package, featuring realistic Earth visualization and Custom Layers
 - **Trade Counter Animation** - Dynamic count-up animation displaying total trades
 - **Horizontal Testimonials Marquee** - Smooth scrolling testimonials behind the globe
 - **Advanced Parallax Scroll Effects** - Multi-layered scroll interactions across sections
