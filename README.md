@@ -29,6 +29,7 @@ A smooth, sophisticated, interactive web section featuring a 3D Earth globe with
 - **Particles**: TSParticles
 - **Icons**: Lucide React
 - **UI Kit**: Radix UI primitives
+- **Testing**: Jest
 - **Package Manager**: npm
 
 ## 📦 Installation & Setup
@@ -68,6 +69,14 @@ A smooth, sophisticated, interactive web section featuring a 3D Earth globe with
 npm run build
 # or
 yarn build
+```
+
+### Test command
+
+```bash
+npm run test
+# or
+yarn test
 ```
 
 ## 🎮 Usage Instructions
