@@ -36,11 +36,11 @@ export const CryptoAssetsList: Array<CryptoAsset> = [
         symbol: "DOGE",
         image: "https://coin-images.coingecko.com/coins/images/5/small/dogecoin.png",
     },
-    {
-        name: "Chainlink",
-        symbol: "LINK",
-        image: "https://assets.coingecko.com/coins/images/1/large/chainlink.png",
-    },
+    // {
+    //     name: "Chainlink",
+    //     symbol: "LINK",
+    //     image: "https://assets.coingecko.com/coins/images/1/large/chainlink.png",
+    // },
     {
         name: "Tether",
         symbol: "USDT",

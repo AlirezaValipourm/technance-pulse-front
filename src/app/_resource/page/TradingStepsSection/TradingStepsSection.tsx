@@ -4,10 +4,10 @@ import { TradingStep } from '@/components/TradingStep'
 import { Typography } from '@/components/Typography'
 import { Badge } from '@/components/uiKit/components/ui/badge'
 import { Button } from '@/components/uiKit/components/ui/button'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { MoveRight, Settings } from 'lucide-react'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const TradingStepsSection = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -19,7 +19,7 @@ export const TradingStepsSection = () => {
         }, 3000) // Change image every 3 seconds
 
         return () => clearInterval(interval)
-    }, [])
+    }, [images.length])
     return (
         <div className="mx-auto px-4 py-10 text-center text-white">
             <div className="flex justify-center">
@@ -68,20 +68,20 @@ export const TradingStepsSection = () => {
                                         key={index}
                                         className="absolute inset-0 h-full"
                                         initial={false}
-                                        animate={{ 
+                                        animate={{
                                             opacity: currentImageIndex === index ? 1 : 0,
                                             scale: currentImageIndex === index ? 1 : 0.95
                                         }}
-                                        transition={{ 
-                                            duration: 1, 
+                                        transition={{
+                                            duration: 1,
                                             ease: "easeInOut"
                                         }}
                                     >
-                                        <Image 
-                                            src={image} 
-                                            alt={`step1-${index + 1}`} 
-                                            fill 
-                                            // className='h-full object-contain'
+                                        <Image
+                                            src={image}
+                                            alt={`step1-${index + 1}`}
+                                            fill
+                                        // className='h-full object-contain'
                                         />
                                     </motion.div>
                                 ))}
