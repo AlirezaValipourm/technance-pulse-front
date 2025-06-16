@@ -1,5 +1,5 @@
 "use client"
-import createGlobe from "cobe";
+import createGlobe from "@/core/libs/customCobe/index.esm";
 import { FC, useCallback, useEffect, useRef } from "react";
 import { IGlobe3DProps } from "./Globe3D.type";
 
@@ -17,18 +17,38 @@ const GLOBE_CONFIG = {
     devicePixelRatio: 1,
     width: GLOBE_SIZE,
     height: GLOBE_SIZE,
-    diffuse: 1,
+    phi: 0,
+    theta: 0,
+    dark: 0.8,
+    diffuse: 1.2,
     mapSamples: 16000,
-    mapBrightness: 10,
-    dark: 0.6,
-    baseColor: [0.1, 0.1, 0.24] as [number, number, number],
-    markerColor: [1, 0.8, 0.2] as [number, number, number],
-    glowColor: [0.4, 0.5, 1] as [number, number, number],
+    mapBrightness: 12,
+    mapBaseBrightness: 0,
+    baseColor: [0.41, 0.41, 1] as [number, number, number],
+    markerColor: [0.1, 0.8, 1] as [number, number, number],
+    glowColor: [0.1, 0.1, 0.1] as [number, number, number],
+    markers: [],
+    // Test 2D overlay layer
+    layers: [
+        {
+            type: "2d",
+            src: "/images/back-3.png",
+            scale: 1,
+            opacity: 1,
+            position: -1, // Render BEHIND globe
+        },
+        {
+            type: "2d",
+            src: "/images/above-2.png",
+            scale: 0.97,
+            opacity: 1,
+            position: 1, // Render on top
+        },
+    ],
 } as const;
 
 export const Globe3D: FC<IGlobe3DProps> = ({
     focusLocation,
-    // markerSize = 0.08,
     ref
 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -51,7 +71,6 @@ export const Globe3D: FC<IGlobe3DProps> = ({
         let phi = (lng * Math.PI) / 180;
         if (phi < 0) phi += 2 * Math.PI; // Convert negative longitude to positive range
 
-        // Convert latitude to theta (-π/2 to π/2, but we'll limit it further)
         const theta = (lat * Math.PI) / 180;
 
         return { phi, theta };
@@ -61,7 +80,6 @@ export const Globe3D: FC<IGlobe3DProps> = ({
     const getShortestAngularDistance = useCallback((current: number, target: number) => {
         let diff = target - current;
 
-        // Normalize the difference to [-π, π] for proper circular distance
         while (diff > Math.PI) diff -= 2 * Math.PI;
         while (diff < -Math.PI) diff += 2 * Math.PI;
 
@@ -75,11 +93,10 @@ export const Globe3D: FC<IGlobe3DProps> = ({
         return normalized;
     }, []);
 
-    // Animation render function
     const onRender = useCallback((state: Record<string, number | string>) => {
         const animation = animationRef.current;
 
-        if (focusLocation && animation.targetPhi !== undefined && animation.targetTheta !== undefined) {
+        if (animation.targetPhi !== undefined && animation.targetTheta !== undefined) {
             // Limit target theta to prevent extreme angles
             const limitedTargetTheta = Math.max(-MAX_THETA, Math.min(MAX_THETA, animation.targetTheta));
 
@@ -91,18 +108,6 @@ export const Globe3D: FC<IGlobe3DProps> = ({
             const thetaDiff = getShortestAngularDistance(animation.theta, limitedTargetTheta);
 
             const isAtTarget = Math.abs(phiDiff) < FOCUS_TOLERANCE && Math.abs(thetaDiff) < FOCUS_TOLERANCE;
-
-            // console.log('Animation state:', {
-            //     currentPhi: normalizedCurrentPhi,
-            //     currentTheta: animation.theta,
-            //     targetPhi: normalizedTargetPhi,
-            //     targetTheta: limitedTargetTheta,
-            //     phiDiff,
-            //     thetaDiff,
-            //     isAtTarget,
-            //     hasReachedTarget: animation.hasReachedTarget,
-            //     focusLocation
-            // });
 
             if (!isAtTarget && !animation.hasReachedTarget) {
                 // Still approaching the target
@@ -130,7 +135,7 @@ export const Globe3D: FC<IGlobe3DProps> = ({
                 // We've reached the target or were already there
                 if (!animation.hasReachedTarget) {
                     animation.hasReachedTarget = true;
-                    console.log('Globe reached focus location:', focusLocation);
+                    console.log('Globe reached focus location');
                 }
 
                 // Continue rotating at focus location - keep theta fixed, only rotate phi
@@ -152,7 +157,7 @@ export const Globe3D: FC<IGlobe3DProps> = ({
 
         state.phi = animation.phi;
         state.theta = animation.theta;
-    }, [focusLocation, getShortestAngularDistance, normalizePhi]);
+    }, [getShortestAngularDistance, normalizePhi]);
 
     // Update focus location
     useEffect(() => {

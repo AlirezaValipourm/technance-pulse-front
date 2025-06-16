@@ -155,7 +155,7 @@ export const IntroductionSection = () => {
                                 </div>
                             </motion.div>
                             <motion.div
-                                className={"absolute top-[45%] left-1/2 h-fit -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-30"}
+                                className={"absolute top-[45%] left-1/2 h-full -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-30"}
                                 style={{
                                     opacity: globeTradeLayerOpacity,
                                 }}
@@ -163,7 +163,7 @@ export const IntroductionSection = () => {
                                 <TradeList onClick={handleTradeClick} />
                                 {/* Shadow layer below TradeList */}
                                 <div
-                                    className={"absolute top-[210%] left-[65%] w-100 h-100 z-10 -translate-x-1/2 -translate-y-1/2 bg-black blur-[80px] bg-[radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 75%, transparent 90%)] pointer-events-none"}
+                                    className={"absolute top-[90%] left-[65%] w-100 h-100 z-10 -translate-x-1/2 -translate-y-1/2 bg-black blur-[80px] bg-[radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 75%, transparent 90%)] pointer-events-none"}
                                 />
                             </motion.div>
                             <Globe3D focusLocation={selectedTrade?.position ?? undefined} ref={globeRef} />
