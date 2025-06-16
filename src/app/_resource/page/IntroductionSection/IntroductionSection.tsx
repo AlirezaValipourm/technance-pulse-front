@@ -13,7 +13,7 @@ import { Button } from '@/components/uiKit/components/ui/button'
 import { testimonialsList } from '@/core/declarations/constants/TestimonialList'
 import { TTrade } from '@/core/declarations/types/trade'
 import { useMediaQuery } from '@/core/utils/useMediaQuery'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'motion/react'
 import { Radar, TrendingDown, TrendingUp } from 'lucide-react'
 import { useRef, useState } from 'react'
 
