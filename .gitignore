@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
+/.nyc_output/
+jest-coverage/
 
 # next.js
 /.next/
