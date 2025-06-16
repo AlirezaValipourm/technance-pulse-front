@@ -43,7 +43,6 @@ describe('TGeoLocation Type', () => {
 
   it('handles positive longitude values', () => {
     // Eastern hemisphere coordinates
-    const london: TGeoLocation = createValidLocation(51.5074, -0.1278)
     const tokyo: TGeoLocation = createValidLocation(35.6762, 139.6503)
     
     expect(tokyo.lng).toBeGreaterThan(0)
